@@ -50,6 +50,7 @@ document.querySelector('#select-first-option').addEventListener('click', () => {
   }
 
   if (isOpen === true) {
+    
     return closeSelect();
   }
 });
@@ -95,27 +96,31 @@ function sortData(data, photographer, totalLikes, dayPrice) {
         );
 
         if (e.target.dataset.filtre === 'Date') {
+        
           const mediasSortedByDate = data.sort(function (a, b) {
             return new Date(b.date) - new Date(a.date);
           });
           displayMedia(mediasSortedByDate, photographer);
           likesInfos(totalLikes, dayPrice);
-          enableLightboxListeners();
+         
         } else if (e.target.dataset.filtre === 'Titre') {
+          
           const mediasSortedByTitre = data.sort((a, b) =>
             a.title.localeCompare(b.title)
           );
           displayMedia(mediasSortedByTitre, photographer);
           likesInfos(totalLikes, dayPrice);
-          enableLightboxListeners();
+         
         } else if (e.target.dataset.filtre === 'Popularité') {
+          
           const triPopularite = data.sort((a, b) => {
             return a.likes < b.likes ? 1 : -1;
           });
           displayMedia(triPopularite, photographer);
           likesInfos(totalLikes, dayPrice);
-          enableLightboxListeners();
+          
         }
+        arrow.classList.toggle("arrow-down-open");
       });
     }
    
