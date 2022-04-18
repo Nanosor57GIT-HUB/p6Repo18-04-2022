@@ -1,4 +1,3 @@
-
 const sliderContainer = document.querySelector(".slider-modal");
 sliderContainer.innerHTML = `
  <div class="slider-container">
@@ -13,7 +12,6 @@ sliderContainer.innerHTML = `
    </div>
    <div class="close-lightbox">x</div>
  </div>`;
-
 
 const prevBtn = document.querySelector(".arrow-left");
 const nextBtn = document.querySelector(".arrow-right");
@@ -30,13 +28,13 @@ const enableLightboxListeners = (portfolio) => {
   const slides = Array.from(document.querySelectorAll(".slide"));
 
   // Create an array holding ids of all media for navigation purposes
-//tableau contenant les identifiants de tous les médias à des fins de navigation
+  //tableau contenant les identifiants de tous les médias à des fins de navigation
   const slidesIds = slides.map((slide) => parseInt(slide.dataset.id));
 
   // Add click event listener to each media card
   // Mettre une fonction forEach avec un eventlistener aux media
 
-   window.addEventListener("keydown", checkKeyPress, true);
+  /* window.addEventListener("keydown", checkKeyPress, true);
    function checkKeyPress(e, index) {
      if (e.keyCode == "13") {
 
@@ -47,16 +45,13 @@ const enableLightboxListeners = (portfolio) => {
      } else {
        return;
      }
-   }
-console.log(mediaCardsList[0]);
-
-
+   }*/
 
   mediaCardsList.forEach((mc) => {
     mc.addEventListener("click", (e) => {
       // display Lightbox
       sliderContainer.style.display = "block";
-    console.log(e.target.parentElement);
+      console.log(e.target.parentElement);
 
       // Get current index of clicked media
       //Récupérer l'index du media cliquer
@@ -97,14 +92,11 @@ console.log(mediaCardsList[0]);
           console.log(window);
         }
       }
-      
-    })
+    });
   });
   /*/////////////////////////////////////////////////////////////*/
   //open lightbox at clic
-  
- 
- 
+
   /*//////////////////////////////////////////////////////////////*/
 
   const showSlide = (index) => {
@@ -141,5 +133,3 @@ console.log(mediaCardsList[0]);
 closeBtn.addEventListener("click", () => {
   sliderContainer.style.display = "none";
 });
-
- 
