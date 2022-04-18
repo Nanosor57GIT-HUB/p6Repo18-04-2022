@@ -35,7 +35,24 @@ const enableLightboxListeners = (portfolio) => {
 
   // Add click event listener to each media card
   // Mettre une fonction forEach avec un eventlistener aux media
-  mediaCardsList.forEach((mc) =>
+
+   window.addEventListener("keydown", checkKeyPress, true);
+   function checkKeyPress(e, index) {
+     if (e.keyCode == "13") {
+
+   sliderContainer.style.display = "block";
+     }
+     if (e.keyCode == "27") {
+       sliderContainer.style.display = "none";
+     } else {
+       return;
+     }
+   }
+console.log(mediaCardsList[0]);
+
+
+
+  mediaCardsList.forEach((mc) => {
     mc.addEventListener("click", (e) => {
       // display Lightbox
       sliderContainer.style.display = "block";
@@ -80,27 +97,13 @@ const enableLightboxListeners = (portfolio) => {
           console.log(window);
         }
       }
+      
     })
-  );
+  });
   /*/////////////////////////////////////////////////////////////*/
   //open lightbox at clic
   
-  window.addEventListener("keydown", checkKeyPress, false);
-  function checkKeyPress(e, index) {
-    if (e.keyCode == "13") {
-       console.log(slides[0]);
-       console.log(slidesIds[0])
-       const test = slidesIds[1]
-     //  console.log(showSlide());
-
-      sliderContainer.style.display = "block";
-    }
-        if (e.keyCode == "27") {
-      sliderContainer.style.display = "none";
-    } else {
-      return
-    }
-  }
+ 
  
   /*//////////////////////////////////////////////////////////////*/
 
